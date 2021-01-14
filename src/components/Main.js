@@ -31,7 +31,7 @@ const Main = (props) => {
   const [hide, setHide] = useState(true);
 
   async function getFilm(searchTerm) {
-    let URL = `http://www.omdbapi.com/?apikey=93261adf&s=${searchTerm}&type=movie`;
+    let URL = `https://www.omdbapi.com/?apikey=93261adf&s=${searchTerm}&type=movie`;
     if (page > 1) {
       URL += `&page=${page}`;
     }
