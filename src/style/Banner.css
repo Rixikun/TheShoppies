@@ -1,0 +1,41 @@
+.banner-container {
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5em;
+  height: 120px;
+  min-width: 300px;
+  width: 40%;
+  max-width: 1200px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: rgba(239, 172, 19, 0.25);
+  box-shadow: 0 5px 15px 5px rgba(239, 172, 19, 0.15);
+  color: #906509;
+
+  animation: slide-down 850ms 1 ease-out;
+}
+
+@media screen and (min-width: 800px) {
+  .banner-container {
+    position: fixed;
+    top: 0;
+    z-index: 4;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
