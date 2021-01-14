@@ -36,8 +36,6 @@ const Main = (props) => {
       URL += `&page=${page}`;
     }
     const res = await axios.get(URL);
-    console.log("URL: ", URL);
-    console.log("res: ", res);
     if (res.data.Response === "True") {
       setTimeout(() => {
         setData(res.data.Search);
