@@ -22,7 +22,7 @@
   margin: 0.5rem;
   padding: 0.5rem;
   background-color: #008060;
-  color: #c1f0d0;
+  color: white;
   border-radius: 0.5rem;
 }
 
@@ -61,6 +61,7 @@
 li.active {
   font-weight: bold;
   color: white;
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.3);
 }
 
 .pages-container small {

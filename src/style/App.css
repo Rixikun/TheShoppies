@@ -114,6 +114,10 @@ footer > div:last-child {
   font-size: 0.8em;
 }
 
+footer a {
+  color: #efac13;
+}
+
 header {
   display: flex;
   flex-direction: column;

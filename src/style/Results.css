@@ -27,6 +27,21 @@
   font-size: 1em;
 }
 
+.placeholder-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  filter: opacity(0.5);
+}
+.placeholder-container img {
+  width: 300px;
+  margin-bottom: 1rem;
+}
+
 .img-container {
   display: flex;
   justify-content: center;

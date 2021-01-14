@@ -18,7 +18,21 @@ const Results = (props) => {
     );
   });
 
-  return <div className="results-container">{data.length ? res : ""}</div>;
+  return (
+    <div className="results-container">
+      {data.length ? (
+        res
+      ) : (
+        <div className="placeholder-container">
+          <img
+            src="https://icon-library.com/images/movie-icon/movie-icon-6.jpg"
+            alt="placeholder movie icon"
+          />
+          <p>No results</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Results;

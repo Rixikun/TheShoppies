@@ -42,12 +42,19 @@ const Result = (props) => {
   return (
     <div className="result-container">
       <div className="img-container">
-        <img src={posterUrl} onClick={() => setToggleFocus(!toggleFocus)} />
+        <img
+          src={posterUrl}
+          onClick={() => setToggleFocus(!toggleFocus)}
+          alt={`movie poster of ${Title}`}
+        />
       </div>
       <div className="filmInfo-container">
         <p>
           <strong>
-            <a href={`https://www.imdb.com/title/${imdbID}`} target="_blank">
+            <a
+              href={`https://www.imdb.com/title/${imdbID}`}
+              target="_blank"
+              title={`${Title}-${Year}`}>
               {Title}
             </a>
           </strong>
