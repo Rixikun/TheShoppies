@@ -15,7 +15,23 @@
   padding-left: 1rem;
   color: rgb(239, 172, 19);
 }
-
+.nominations-container h2 {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #fbf7ed;
+}
+.nominations-container button {
+  margin: 0;
+  float: right;
+}
+.nominations-container button:hover,
+.nominations-container button:focus {
+  background-color: #c1f0d0;
+  color: #008060;
+  box-shadow: 0 0 0.1875em 0.1875em rgba(0, 128, 96, 0.6);
+}
+.nominations-container button:active {
+  background-color: #fbf7ed;
+}
 .nominations {
   display: flex;
   flex-direction: column;
@@ -26,15 +42,28 @@
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
-.nominations-container button {
-  margin: 0;
+.nominations li {
+  width: 100%;
 }
-.nominations-container button:hover,
-.nominations-container button:focus {
-  background-color: #c1f0d0;
-  color: #008060;
-  box-shadow: 0 0 0.1875em 0.1875em rgba(0, 128, 96, 0.6);
-}
-.nominations-container button:active {
-  background-color: #fbf7ed;
+
+@media screen and (max-width: 450px) {
+  .nominations-container {
+    position: absolute;
+    width: 75%;
+  }
+  .nominations {
+    padding: 0.8em;
+  }
+  .nominations h2 {
+    font-size: 1em;
+    padding-left: 0.5em;
+    margin: 0.5em 0;
+  }
+  .nominations ul {
+    padding: 0 0.5em 0.5em;
+    font-size: 0.9em;
+  }
+  .nominations p {
+    margin: 0.5em 0;
+  }
 }

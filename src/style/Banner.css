@@ -16,11 +16,15 @@
   max-width: 1200px;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  background-color: rgba(239, 172, 19, 0.25);
+  background-color: rgb(239, 172, 19);
   box-shadow: 0 5px 15px 5px rgba(239, 172, 19, 0.15);
-  color: #906509;
+  color: #002e25;
 
   animation: slide-down 850ms 1 ease-out;
+}
+
+.hide {
+  display: none;
 }
 
 @media screen and (min-width: 800px) {
@@ -28,6 +32,17 @@
     position: fixed;
     top: 0;
     z-index: 4;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .banner-container {
+    position: fixed;
+    top: 0;
+    z-index: 4;
+  }
+  .banner {
+    height: 80px;
   }
 }
 

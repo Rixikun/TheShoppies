@@ -67,3 +67,27 @@ li.active {
 .pages-container small {
   color: #b6babf;
 }
+
+@media screen and (max-width: 450px) {
+  .pages-container {
+    flex-direction: column;
+    min-width: 250px;
+    width: calc(100% - 2em);
+    padding: 1em;
+    height: auto;
+  }
+  .pages-container small {
+    margin-bottom: 1em;
+  }
+  .pages {
+    flex-direction: column;
+  }
+  .pages ul {
+    margin: 0;
+  }
+
+  .pageJump-container {
+    margin: 1em 0;
+    align-items: center;
+  }
+}
