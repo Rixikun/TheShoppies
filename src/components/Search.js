@@ -10,13 +10,16 @@ const Search = (props) => {
 
   return (
     <div className="search-container">
-      <h2>Search</h2>
-      <input
-        type="text"
-        placeholder="Film title"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <div>
+        <label htmlFor="search-title">Search by title</label>
+        <input
+          id="search-title"
+          type="text"
+          placeholder="Enter film title"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <button onClick={(e) => handleSearch(e)}>Search!</button>
     </div>
   );

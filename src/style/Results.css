@@ -54,9 +54,8 @@
   z-index: 1;
   padding: 0.5rem;
 }
-.filmInfo-container p,
-.filmInfo-container a {
-  margin: 0 0.5rem;
+.filmInfo-container p {
+  margin: 0 0.75rem;
 }
 
 .singleMovie-container {

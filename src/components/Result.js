@@ -15,12 +15,13 @@ const Result = (props) => {
     e.preventDefault();
     const res = [...nominations];
     if (res.length < 5) {
+      setLoading(true);
       res.push(e.target.value);
       setTimeout(() => {
         setNominations(res);
         setLoading(false);
-      }, 1000);
-      localStorage.setItem("userList", JSON.stringify(res));
+        localStorage.setItem("userList", JSON.stringify(res));
+      }, 800);
     } else {
       console.log("5 reached");
     }
@@ -45,12 +46,13 @@ const Result = (props) => {
       </div>
       <div className="filmInfo-container">
         <p>
-          <strong> {Title}</strong>{" "}
+          <strong>
+            <a href={`https://www.imdb.com/title/${imdbID}`} target="_blank">
+              {Title}
+            </a>
+          </strong>
         </p>
         <p>({Year}) </p>
-        <a href={`https://www.imdb.com/title/${imdbID}`} target="_blank">
-          IMDb page
-        </a>
         <button
           value={Title}
           disabled={disableNomination()}

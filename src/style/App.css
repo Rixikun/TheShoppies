@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "ShopifySans";
+  src: url("https://cdn.shopify.com/shopify-marketing_assets/static/ShopifySans--regular.woff2");
+}
+
 body {
   font-family: ShopifySans, Helvetica, Arial, sans-serif;
 }
@@ -35,7 +40,7 @@ label {
 }
 
 input {
-  border-radius: 0.5rem;
+  border-radius: 4px;
   padding: 1em;
   margin: 0.5rem;
   border: 1px solid transparent;
@@ -57,7 +62,7 @@ button {
   padding: 1rem;
   margin: 0.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   color: white;
   background-color: #008060;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
@@ -95,13 +100,18 @@ footer {
   background-color: #fbf7ed;
 }
 
-footer div:last-child {
+footer > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100px;
+  width: 100%;
+  padding: 1rem 0;
   color: #b6babf;
   background-color: #002e25;
-  width: 100%;
-  text-align: center;
   font-size: 0.8em;
-  padding-bottom: 1rem;
 }
 
 header {
@@ -168,6 +178,8 @@ main {
 }
 
 .search-container {
+  display: flex;
+  align-items: flex-end;
   padding: 2rem;
   min-width: 400px;
   width: calc(100% - 4rem);
@@ -175,8 +187,12 @@ main {
   background-color: #fbf7ed;
   color: #906509;
 }
-.search-container h2 {
-  margin-left: 0.5rem;
+.search-container > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  width: 50%;
+  max-width: 600px;
 }
 
 @media screen and (min-width: 800px) {

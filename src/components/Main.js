@@ -125,7 +125,9 @@ const Main = (props) => {
           <p>
             Movie data from <a href="http://www.omdbapi.com/">OMDb API</a>
           </p>
-          <p>Project by Lin Xia</p>
+          <p>
+            Project by <a href="https://github.com/Rixikun">Lin Xia</a>
+          </p>
         </div>
       </footer>
     </div>

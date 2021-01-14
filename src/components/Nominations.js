@@ -10,12 +10,13 @@ const Nominations = (props) => {
 
   function handleRemove(e, idx) {
     e.preventDefault();
+    setLoading(true);
     const res = [...nominations];
     res.splice(idx, 1);
     setTimeout(() => {
       setNominations(res);
       setLoading(false);
-    }, 1000);
+    }, 500);
     localStorage.setItem("userList", JSON.stringify(res));
   }
 
@@ -34,7 +35,11 @@ const Nominations = (props) => {
         <div className={`nominations-container`}>
           <div className="nominations">
             <h2>Your Nominations</h2>
-            {nominations.length ? <ul className="nominations">{res}</ul> : ""}
+            {nominations.length ? (
+              <ul className="nominations">{res}</ul>
+            ) : (
+              <small>No films nominated</small>
+            )}
           </div>
         </div>
       ) : (
