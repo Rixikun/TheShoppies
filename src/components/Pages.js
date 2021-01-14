@@ -8,7 +8,15 @@ const Pages = (props) => {
     setPage,
     setLoading,
     totalResults,
+    search,
   } = props;
+
+  function handleInput(e) {
+    const newUrl = `${window.location.pathname}?search=${search}&page=${e.target.value}`;
+    window.history.pushState({ path: newUrl }, "", newUrl);
+    setPage(e.target.value);
+    setLoading(true);
+  }
 
   const shortenPages =
     lastPage <= 6
@@ -27,9 +35,9 @@ const Pages = (props) => {
       }>
       {typeof el === "number" ? (
         el > 0 ? (
-          el
+          <a href={`/?search=${search}&page=${el}`}>{el}</a>
         ) : (
-          idx + 1
+          <a href={`/?search=${search}&page=${idx + 1}`}>{idx + 1}</a>
         )
       ) : (
         <>{page < lastPage - 1 && page > 2 ? `.. ${page} ..` : el}</>
@@ -39,11 +47,15 @@ const Pages = (props) => {
 
   return (
     <div className="pages-container">
-      <div className="pages">
+      <nav className="pages">
         <ul>
-          <li key={0} onClick={() => handlePageClick(-1, true)}></li>
+          <li key={0} onClick={() => handlePageClick(-1, true)}>
+            <a href={`/?search=${search}&page=${page - 1}`}></a>
+          </li>
           {res}
-          <li key={lastPage + 1} onClick={() => handlePageClick(1, true)}></li>
+          <li key={lastPage + 1} onClick={() => handlePageClick(1, true)}>
+            <a href={`/?search=${search}&page=${page + 1}`}></a>
+          </li>
         </ul>
         {lastPage > 6 ? (
           <div className="pageJump-container">
@@ -55,14 +67,13 @@ const Pages = (props) => {
               max={lastPage}
               min={1}
               onChange={(e) => {
-                setPage(e.target.value);
-                setLoading(true);
+                handleInput(e);
               }}></input>
           </div>
         ) : (
           ""
         )}
-      </div>
+      </nav>
       <small>{totalResults} result(s) found</small>
     </div>
   );

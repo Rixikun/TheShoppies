@@ -52,6 +52,19 @@ const Main = (props) => {
   }
 
   useEffect(() => {
+    let url = window.location.search;
+    if (url.length) {
+      url = url.slice(1);
+      const queries = url.split("&");
+      const title = queries[0].split("=")[1];
+      const pg = queries.length > 1 ? queries[1].split("=")[1] : 1;
+      setPage(pg);
+      setSearch(title);
+      setLoading(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (loading) {
       getFilm(search);
     }
@@ -61,11 +74,15 @@ const Main = (props) => {
     if (pg === "...") {
       return;
     } else if (!isEnd) {
+      const newUrl = `${window.location.pathname}?search=${search}&page=${pg}`;
+      window.history.pushState({ path: newUrl }, "", newUrl);
       setPage(Number(pg));
       setLoading(true);
     } else {
       const newPg = Number(page) + Number(pg);
       if (newPg >= 1 && newPg <= lastPage) {
+        const newUrl = `${window.location.pathname}?search=${search}&page=${newPg}`;
+        window.history.pushState({ path: newUrl }, "", newUrl);
         setPage(newPg);
         setLoading(true);
       }
@@ -117,6 +134,7 @@ const Main = (props) => {
             setPage={setPage}
             setLoading={setLoading}
             totalResults={totalResults}
+            search={search}
           />
         ) : (
           ""
