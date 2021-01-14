@@ -22,6 +22,8 @@
 .nominations-container button {
   margin: 0;
   float: right;
+  padding: 0.5rem;
+  font-size: 0.8rem;
 }
 .nominations-container button:hover,
 .nominations-container button:focus {
@@ -41,9 +43,15 @@
   padding: 1rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  width: calc(100% - 2rem);
 }
 .nominations li {
   width: 100%;
+}
+
+.nominations a {
+  color: white;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 450px) {

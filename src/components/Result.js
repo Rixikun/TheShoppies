@@ -11,12 +11,16 @@ const Result = (props) => {
 
   const [toggleFocus, setToggleFocus] = useState(false);
 
-  function handleNominate(e) {
-    e.preventDefault();
+  function handleNominate() {
     const res = [...nominations];
     if (res.length < 5) {
       setLoading(true);
-      res.push(e.target.value);
+      const item = {
+        title: Title,
+        id: imdbID,
+        year: Year,
+      };
+      res.push(JSON.stringify(item));
       setTimeout(() => {
         setNominations(res);
         setLoading(false);
@@ -30,8 +34,9 @@ const Result = (props) => {
   function disableNomination() {
     let res = false;
 
-    nominations.forEach((title) => {
-      if (title === Title) {
+    nominations.forEach((obj) => {
+      const info = JSON.parse(obj);
+      if (info.title === Title && info.id === imdbID) {
         res = true;
       }
     });
@@ -63,7 +68,7 @@ const Result = (props) => {
         <button
           value={Title}
           disabled={disableNomination()}
-          onClick={(e) => handleNominate(e)}>
+          onClick={handleNominate}>
           Nominate
         </button>
       </div>
