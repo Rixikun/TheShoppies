@@ -33,7 +33,6 @@ const Nominations = (props) => {
       </li>
     );
   });
-  console.log("userlist", nominations);
   return (
     <>
       {!hide ? (
