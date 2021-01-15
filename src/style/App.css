@@ -1,13 +1,22 @@
 @font-face {
   font-family: "ShopifySans";
   src: url("https://cdn.shopify.com/shopify-marketing_assets/static/ShopifySans--regular.woff2");
+  font-family: "ShopifySansBold";
+  src: url("https://cdn.shopify.com/shopify-marketing_assets/static/ShopifySans--bold.woff2");
+  font-family: "ShopifySansExtraBold";
+  src: url("https://cdn.shopify.com/shopify-marketing_assets/static/ShopifySans--extrabold.woff2");
 }
+
+/** 
+native tags 
+**/
 
 body {
   font-family: ShopifySans, Helvetica, Arial, sans-serif;
 }
 
 h1 {
+  font-family: ShopifySansExtraBold, Helvetica, Arial, sans-serif;
   font-size: 2.5em;
 }
 
@@ -49,6 +58,7 @@ input {
   font-size: 1em;
   color: #212326;
 }
+
 input:hover,
 input:active,
 input:focus {
@@ -68,25 +78,33 @@ button {
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
   font-size: 1.2rem;
 }
+
 button:hover {
   cursor: pointer;
   color: white;
   background-color: #004c3f;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
 }
+
 button:active {
   background-color: #002e25;
 }
+
 button:focus {
   box-shadow: 0 0 0.1875em 0.1875em rgba(0, 128, 96, 0.5);
   background-color: #004c3f;
 }
+
 button:disabled {
   color: white;
   background-color: #c5d6d3;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05);
   cursor: auto;
 }
+
+/** 
+native elements 
+**/
 
 footer {
   display: flex;
@@ -131,13 +149,9 @@ header {
   color: #906509;
 }
 
-.header-inner,
-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
+/** 
+custom classes 
+**/
 
 .App {
   display: flex;
@@ -146,6 +160,26 @@ main {
   align-items: center;
   min-width: 100vw;
   width: 100%;
+}
+
+.header-inner,
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-inner {
+  min-width: 400px;
+  width: calc(100% - 4rem);
+  max-width: 1400px;
+}
+
+.header-inner > div {
+  display: flex;
+  align-items: center;
+  width: 250px;
 }
 
 .main-container {
@@ -166,21 +200,7 @@ main {
   width: 100%;
 }
 
-.header-inner {
-  min-width: 400px;
-  width: calc(100% - 4rem);
-  max-width: 1400px;
-}
-
-.header-inner > div {
-  display: flex;
-  align-items: center;
-  width: 250px;
-}
-
-.hide {
-  display: none !important;
-}
+/* .search-container */
 
 .search-container {
   display: flex;
@@ -200,6 +220,10 @@ main {
   max-width: 600px;
 }
 
+.hide {
+  display: none !important;
+}
+
 @media screen and (min-width: 800px) {
   header {
     position: fixed;
@@ -212,35 +236,16 @@ main {
   }
 }
 
+/**
+mobile responsive 
+**/
+
 @media screen and (max-width: 450px) {
   header {
     width: calc(100% - 2em);
     padding: 0 1em;
   }
-  .header-inner {
-    min-width: 250px;
-    width: 100%;
-  }
-  .header-inner > div > h1 {
-    font-size: 1.5em;
-  }
-  .header-inner > div {
-    width: 50%;
-  }
-  .header-inner button {
-    font-size: 1em;
-    width: 40%;
-    word-wrap: normal;
-  }
-  .search-container {
-    justify-content: space-between;
-    min-width: 250px;
-    width: calc(100% - 2em);
-    padding: 1em;
-  }
-  .search-container > div {
-    width: 100%;
-  }
+
   footer {
     min-width: 250px;
     width: 100%;
@@ -250,5 +255,35 @@ main {
   input {
     padding: 0.8em;
     font-size: 1em;
+  }
+
+  .header-inner {
+    min-width: 250px;
+    width: 100%;
+  }
+
+  .header-inner > div > h1 {
+    font-size: 1.5em;
+  }
+
+  .header-inner > div {
+    width: 50%;
+  }
+
+  .header-inner button {
+    font-size: 1em;
+    width: 40%;
+    word-wrap: normal;
+  }
+
+  .search-container {
+    justify-content: space-between;
+    min-width: 250px;
+    width: calc(100% - 2em);
+    padding: 1em;
+  }
+
+  .search-container > div {
+    width: 100%;
   }
 }

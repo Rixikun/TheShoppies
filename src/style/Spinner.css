@@ -1,3 +1,5 @@
+/* .spinner-container */
+
 .spinner-container {
   position: fixed;
   display: flex;
@@ -11,6 +13,9 @@
   z-index: 100;
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+/* .spinner-main */
+
 .spinner-main {
   display: flex;
   justify-content: center;
@@ -20,6 +25,8 @@
 
   animation: spin 1s infinite linear;
 }
+
+/* .spinner-inner */
 
 .spinner-inner {
   width: 12px;
@@ -33,6 +40,10 @@
 .spinner-inner:nth-child(2) {
   background-color: #906509;
 }
+
+/**
+animation
+**/
 
 @keyframes spin {
   0% {

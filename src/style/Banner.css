@@ -27,6 +27,10 @@
   display: none;
 }
 
+/**
+mobile responsive 
+**/
+
 @media screen and (min-width: 800px) {
   .banner-container {
     position: fixed;
@@ -45,6 +49,10 @@
     height: 80px;
   }
 }
+
+/**
+animation
+**/
 
 @keyframes slide-down {
   0% {
