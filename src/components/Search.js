@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Search = (props) => {
   const { search, setSearch, setLoading } = props;
 
-  function handleSearch(e) {
-    e.preventDefault();
+  function handleSearch() {
     setLoading(true);
   }
 
@@ -18,9 +17,12 @@ const Search = (props) => {
           placeholder="Enter film title"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch();
+          }}
         />
       </div>
-      <button onClick={(e) => handleSearch(e)}>Search!</button>
+      <button onClick={handleSearch}>Search!</button>
     </div>
   );
 };
