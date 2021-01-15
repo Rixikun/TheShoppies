@@ -4,7 +4,7 @@ import "../style/Results.css";
 import SingleMovie from "./SingleMovie";
 
 const Result = (props) => {
-  const { Title, Year, Type, imdbID, Poster } = props.film;
+  const { Title, Year, imdbID, Poster } = props.film;
   const { nominations, setNominations, setLoading } = props;
   const defaultPoster = `https://everyfad.com/static/images/movie_poster_placeholder.29ca1c87.svg`;
   const posterUrl = Poster !== "N/A" ? Poster : defaultPoster;
@@ -59,6 +59,7 @@ const Result = (props) => {
             <a
               href={`https://www.imdb.com/title/${imdbID}`}
               target="_blank"
+              rel="noreferrer"
               title={`${Title}-${Year}`}>
               {Title}
             </a>
@@ -73,7 +74,11 @@ const Result = (props) => {
         </button>
       </div>
       {toggleFocus ? (
-        <SingleMovie posterUrl={posterUrl} setToggleFocus={setToggleFocus} />
+        <SingleMovie
+          Title={Title}
+          posterUrl={posterUrl}
+          setToggleFocus={setToggleFocus}
+        />
       ) : (
         ""
       )}

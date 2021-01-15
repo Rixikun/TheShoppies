@@ -50,11 +50,11 @@ const Pages = (props) => {
       <nav className="pages">
         <ul>
           <li key={0} onClick={() => handlePageClick(-1, true)}>
-            <a href={`/?search=${search}&page=${page - 1}`}></a>
+            <a href={`/?search=${search}&page=${page - 1}`}> </a>
           </li>
           {res}
           <li key={lastPage + 1} onClick={() => handlePageClick(1, true)}>
-            <a href={`/?search=${search}&page=${page + 1}`}></a>
+            <a href={`/?search=${search}&page=${page + 1}`}> </a>
           </li>
         </ul>
         {lastPage > 6 ? (

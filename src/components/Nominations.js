@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/Nominations.css";
 
 const Nominations = (props) => {
-  const { nominations, setNominations, setLoading, hide, setHide } = props;
+  const { nominations, setNominations, setLoading, hide } = props;
 
   if (nominations.length === 5) {
     console.log("reached 5");
@@ -26,7 +26,14 @@ const Nominations = (props) => {
     return (
       <li key={idx}>
         <p>
-          {idx + 1}. <a href={`https://www.imdb.com/title/${id}`}>{title}</a>{" "}
+          {idx + 1}.{" "}
+          <a
+            href={`https://www.imdb.com/title/${id}`}
+            target="_blank"
+            title={`${title}-${year}`}
+            rel="noreferrer">
+            {title}
+          </a>{" "}
           <small>({year})</small>
         </p>
         <button onClick={(e) => handleRemove(e, idx)}>Remove</button>
@@ -39,11 +46,13 @@ const Nominations = (props) => {
         <div className={`nominations-container`}>
           <div className="nominations">
             <h2>Your Nominations</h2>
-            {nominations.length ? (
-              <ul className="nominations">{res}</ul>
-            ) : (
-              <small>No films nominated</small>
-            )}
+            <nav>
+              {nominations.length ? (
+                <ul className="nominations">{res}</ul>
+              ) : (
+                <small>No films nominated</small>
+              )}
+            </nav>
           </div>
         </div>
       ) : (

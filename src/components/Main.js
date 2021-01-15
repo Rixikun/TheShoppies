@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
 
-import {
-  Search,
-  Results,
-  Nominations,
-  Banner,
-  Spinner,
-  SingleMovie,
-  Pages,
-} from "./index";
+import { Search, Results, Nominations, Banner, Spinner, Pages } from "./index";
 import axios from "axios";
 
 import "../style/Pages.css";
@@ -30,25 +21,6 @@ const Main = (props) => {
   const [nominations, setNominations] = useState([...stored_userListArr]);
   const [hide, setHide] = useState(true);
 
-  async function getFilm(searchTerm) {
-    let URL = `https://www.omdbapi.com/?apikey=93261adf&s=${searchTerm}&type=movie`;
-    if (page > 1) {
-      URL += `&page=${page}`;
-    }
-    const res = await axios.get(URL);
-    if (res.data.Response === "True") {
-      setTimeout(() => {
-        setData(res.data.Search);
-        setLoading(false);
-      }, 1000);
-      setTotalResults(res.data.totalResults);
-      setLastPage(Math.ceil(Number(res.data.totalResults) / 10));
-    } else {
-      console.log("Error", res.data.Error);
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
     let url = window.location.search;
     if (url.length) {
@@ -63,10 +35,28 @@ const Main = (props) => {
   }, []);
 
   useEffect(() => {
+    async function getFilm(searchTerm) {
+      let URL = `https://www.omdbapi.com/?apikey=93261adf&s=${searchTerm}&type=movie`;
+      if (page > 1) {
+        URL += `&page=${page}`;
+      }
+      const res = await axios.get(URL);
+      if (res.data.Response === "True") {
+        setTimeout(() => {
+          setData(res.data.Search);
+          setLoading(false);
+        }, 1000);
+        setTotalResults(res.data.totalResults);
+        setLastPage(Math.ceil(Number(res.data.totalResults) / 10));
+      } else {
+        console.log("Error", res.data.Error);
+        setLoading(false);
+      }
+    }
     if (loading) {
       getFilm(search);
     }
-  }, [loading]);
+  }, [loading, search, page]);
 
   function handlePageClick(pg, isEnd = false) {
     if (pg === "...") {
@@ -120,7 +110,6 @@ const Main = (props) => {
           setNominations={setNominations}
           setLoading={setLoading}
           hide={hide}
-          setHide={setHide}
         />
       </aside>
       <footer>
